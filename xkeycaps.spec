@@ -2,7 +2,7 @@ Summary:	xkeycaps - a keymap editor for the X Window System
 Summary(pl):	xkeycaps - edytor mapy klawiatury dla X Window System
 Name:		xkeycaps
 Version:	2.46
-Release:	2
+Release:	3
 License:	BSD
 Group:		X11/Applications
 Group(de):	X11/Applikationen
@@ -52,7 +52,7 @@ install -d $RPM_BUILD_ROOT%{_applnkdir}/Utilities
         MANDIR=%{_mandir}/man1 \
         BINDIR=%{_bindir} 
 
-install %{SOURCE1} $RPM_BUILD_ROOT%{_applnkdir}/Utilities
+install %{SOURCE1} $RPM_BUILD_ROOT%{_applnkdir}/Settings
 
 gzip -9nf README defining.txt
 
@@ -62,6 +62,6 @@ rm -rf $RPM_BUILD_ROOT
 %files
 %defattr(644,root,root,755)
 %doc *.gz
-%{_applnkdir}/Utilities/xkeycaps.desktop
+%{_applnkdir}/Settings/xkeycaps.desktop
 %attr(755,root,root) %{_bindir}/*
 %{_mandir}/man1/*
