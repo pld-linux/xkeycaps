@@ -1,13 +1,13 @@
-Summary:	xkeycaps - a keymap editor for the X window system
-Summary(pl):	xkeycaps - edytor mapy klawiatury dla X window
+Summary:	xkeycaps - a keymap editor for the X Window System
+Summary(pl):	xkeycaps - edytor mapy klawiatury dla X Window System
 Name:		xkeycaps
-Version:	2.44
-Release:	2
+Version:	2.45
+Release:	1
 Copyright:	BSD
 Group:		X11/Applications
 Group(pl):	X11/Aplikacje
 Source0:	http://www.jwz.org/xkeycaps/%{name}-%{version}.tar.Z
-Source1:	xkeycaps.wmconfig
+Source1:	xkeycaps.desktop
 URL:		http://www.jwz.org/xkeycaps/
 BuildRequires:	XFree86-devel
 Buildroot:	/tmp/%{name}-%{version}-root
@@ -43,14 +43,16 @@ make 	DEFAULT_KBD_NAME="L101" \
 
 %install
 rm -rf $RPM_BUILD_ROOT
-install -d $RPM_BUILD_ROOT/etc/X11/wmconfig
+install -d $RPM_BUILD_ROOT/etc/X11/applnk/Utilities
 
 make install install.man \
 	DESTDIR=$RPM_BUILD_ROOT \
         MANDIR=%{_mandir}/man1 \
         BINDIR=%{_bindir} 
 
-install %{SOURCE1} $RPM_BUILD_ROOT/etc/X11/wmconfig/%{name}
+install %{SOURCE1} $RPM_BUILD_ROOT/etc/X11/applnk/Utilities
+
+strip $RPM_BUILD_ROOT%{_bindir}/*
 
 gzip -9nf $RPM_BUILD_ROOT%{_mandir}/man1/* \
 	README defining.txt
@@ -61,6 +63,6 @@ rm -rf $RPM_BUILD_ROOT
 %files
 %defattr(644,root,root,755)
 %doc *.gz
-/etc/X11/wmconfig/%{name}
-%attr(755,root,root) %{_bindir}/%{name}
+/etc/X11/applnk/Utilities/xkeycaps.desktop
+%attr(755,root,root) %{_bindir}/*
 %{_mandir}/man1/*
