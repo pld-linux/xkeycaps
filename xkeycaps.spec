@@ -5,8 +5,6 @@ Version:	2.46
 Release:	3
 License:	BSD
 Group:		X11/Applications
-Group(de):	X11/Applikationen
-Group(pl):	X11/Aplikacje
 Source0:	http://www.jwz.org/xkeycaps/%{name}-%{version}.tar.Z
 Source1:	%{name}.desktop
 URL:		http://www.jwz.org/xkeycaps/
