@@ -39,14 +39,14 @@ xmodmapa.
 
 %build
 xmkmf -a
-make 	DEFAULT_KBD_NAME="L101" \
+%{__make} 	DEFAULT_KBD_NAME="L101" \
 	CDEBUGFLAGS="$RPM_OPT_FLAGS"
 
 %install
 rm -rf $RPM_BUILD_ROOT
 install -d $RPM_BUILD_ROOT%{_applnkdir}/Utilities
 
-make install install.man \
+%{__make} install install.man \
 	DESTDIR=$RPM_BUILD_ROOT \
         MANDIR=%{_mandir}/man1 \
         BINDIR=%{_bindir} 
