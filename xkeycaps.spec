@@ -1,8 +1,8 @@
 Summary:	xkeycaps - a keymap editor for the X Window System
 Summary(pl):	xkeycaps - edytor mapy klawiatury dla X Window System
 Name:		xkeycaps
-Version:	2.45
-Release:	2
+Version:	2.46
+Release:	1
 Copyright:	BSD
 Group:		X11/Applications
 Group(pl):	X11/Aplikacje
@@ -14,6 +14,7 @@ Buildroot:	/tmp/%{name}-%{version}-root
 
 %define 	_prefix		/usr/X11R6
 %define 	_mandir 	%{_prefix}/man
+%define		_applnkdir	/usr/X11R6/share/applnk
 
 %description
 xkeycaps is a graphical front-end to xmodmap.It opens a window that looks
@@ -43,14 +44,14 @@ make 	DEFAULT_KBD_NAME="L101" \
 
 %install
 rm -rf $RPM_BUILD_ROOT
-install -d $RPM_BUILD_ROOT/usr/X11R6/share/applnk/Utilities
+install -d $RPM_BUILD_ROOT%{_applnkdir}/Utilities
 
 make install install.man \
 	DESTDIR=$RPM_BUILD_ROOT \
         MANDIR=%{_mandir}/man1 \
         BINDIR=%{_bindir} 
 
-install %{SOURCE1} $RPM_BUILD_ROOT/usr/X11R6/share/applnk/Utilities
+install %{SOURCE1} $RPM_BUILD_ROOT%{_applnkdir}/Utilities
 
 strip $RPM_BUILD_ROOT%{_bindir}/*
 
@@ -63,6 +64,6 @@ rm -rf $RPM_BUILD_ROOT
 %files
 %defattr(644,root,root,755)
 %doc *.gz
-/usr/X11R6/share/applnk/Utilities/xkeycaps.desktop
+%{_applnkdir}/Utilities/xkeycaps.desktop
 %attr(755,root,root) %{_bindir}/*
 %{_mandir}/man1/*
