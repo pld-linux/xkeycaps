@@ -1,14 +1,15 @@
-Summary:     xkeycaps - a keymap editor for the X window system
-Name:        xkeycaps
-Version:     2.43
-Release:     1
-Copyright:   BSD
-Group:       X11/Applications
-Source0:     http://www.jwz.org/xkeycaps/%{name}-%{version}.tar.Z
-Source1:     %{name}.wmconfig
-URL:         http://www.jwz.org/xkeycaps/
-Buildroot:   /tmp/%{name}-%{version}-root
-Summary(pl): xkeycaps - edytor mapy klawiatury dla X window
+Summary:	xkeycaps - a keymap editor for the X window system
+Summary(pl):	xkeycaps - edytor mapy klawiatury dla X window
+Name:		xkeycaps
+Version:	2.44
+Release:	1
+Copyright:	BSD
+Group:		X11/Applications
+Source0:	http://www.jwz.org/xkeycaps/%{name}-%{version}.tar.Z
+Source1:	xkeycaps.wmconfig
+URL:		http://www.jwz.org/xkeycaps/
+BuildPrereq:	XFree86-devel
+Buildroot:	/tmp/%{name}-%{version}-root
 
 %description
 xkeycaps is a graphical front-end to xmodmap.It opens a window that looks
@@ -44,15 +45,18 @@ make install.man DESTDIR=$RPM_BUILD_ROOT
 
 install %{SOURCE1} $RPM_BUILD_ROOT/etc/X11/wmconfig/xkeycaps
 
+gzip -9nf $RPM_BUILD_ROOT/usr/X11R6/man/man1/* \
+	README defining.txt
+
 %clean
 rm -rf $RPM_BUILD_ROOT
 
 %files
-%defattr(644, root, root, 755)
-%doc README defining.txt
+%defattr(644,root,root,755)
+%doc *.gz
 /etc/X11/wmconfig/xkeycaps
-%attr(755, root, root) /usr/X11R6/bin/xkeycaps
-%attr(644, root,  man) /usr/X11R6/man/man1/xkeycaps.1x
+%attr(755,root,root) /usr/X11R6/bin/xkeycaps
+/usr/X11R6/man/man1/*
 
 %changelog
 * Mon Jan 11 1999 Arkadiusz Mi¶kiewicz <misiek@misiek.eu.org>
