@@ -43,14 +43,14 @@ make 	DEFAULT_KBD_NAME="L101" \
 
 %install
 rm -rf $RPM_BUILD_ROOT
-install -d $RPM_BUILD_ROOT/etc/X11/applnk/Utilities
+install -d $RPM_BUILD_ROOT/usr/X11R6/share/applnk/Utilities
 
 make install install.man \
 	DESTDIR=$RPM_BUILD_ROOT \
         MANDIR=%{_mandir}/man1 \
         BINDIR=%{_bindir} 
 
-install %{SOURCE1} $RPM_BUILD_ROOT/etc/X11/applnk/Utilities
+install %{SOURCE1} $RPM_BUILD_ROOT/usr/X11R6/share/applnk/Utilities
 
 strip $RPM_BUILD_ROOT%{_bindir}/*
 
@@ -63,6 +63,6 @@ rm -rf $RPM_BUILD_ROOT
 %files
 %defattr(644,root,root,755)
 %doc *.gz
-/etc/X11/applnk/Utilities/xkeycaps.desktop
+/usr/X11R6/share/applnk/Utilities/xkeycaps.desktop
 %attr(755,root,root) %{_bindir}/*
 %{_mandir}/man1/*
