@@ -5,9 +5,10 @@ Version:	2.46
 Release:	1
 License:	BSD
 Group:		X11/Applications
+Group(de):	X11/Applikationen
 Group(pl):	X11/Aplikacje
 Source0:	http://www.jwz.org/xkeycaps/%{name}-%{version}.tar.Z
-Source1:	xkeycaps.desktop
+Source1:	%{name}.desktop
 URL:		http://www.jwz.org/xkeycaps/
 BuildRequires:	XFree86-devel
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
@@ -39,8 +40,8 @@ xmodmapa.
 
 %build
 xmkmf -a
-%{__make} 	DEFAULT_KBD_NAME="L101" \
-	CDEBUGFLAGS="$RPM_OPT_FLAGS"
+%{__make} DEFAULT_KBD_NAME="L101" \
+	CDEBUGFLAGS="%{rpmcflags}"
 
 %install
 rm -rf $RPM_BUILD_ROOT
@@ -53,10 +54,7 @@ install -d $RPM_BUILD_ROOT%{_applnkdir}/Utilities
 
 install %{SOURCE1} $RPM_BUILD_ROOT%{_applnkdir}/Utilities
 
-strip $RPM_BUILD_ROOT%{_bindir}/*
-
-gzip -9nf $RPM_BUILD_ROOT%{_mandir}/man1/* \
-	README defining.txt
+gzip -9nf README defining.txt
 
 %clean
 rm -rf $RPM_BUILD_ROOT
