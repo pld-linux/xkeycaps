@@ -8,6 +8,7 @@ Release:	5
 License:	BSD
 Group:		X11/Applications
 Source0:	http://www.jwz.org/xkeycaps/%{name}-%{version}.tar.Z
+# Source0-md5:	6792f828db6538f44f7696a8783b44ac
 Source1:	%{name}.desktop
 Source2:	%{name}.png
 URL:		http://www.jwz.org/xkeycaps/
