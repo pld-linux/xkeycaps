@@ -38,8 +38,7 @@ konfiguracyjny dla xmodmapa.
 
 %build
 xmkmf -a
-make \
-	DEFAULT_KBD_NAME="L101" \
+make 	DEFAULT_KBD_NAME="L101" \
 	CDEBUGFLAGS="$RPM_OPT_FLAGS"
 
 %install
