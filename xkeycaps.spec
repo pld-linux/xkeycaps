@@ -12,6 +12,8 @@ URL:		http://www.jwz.org/xkeycaps/
 BuildPrereq:	XFree86-devel
 Buildroot:	/tmp/%{name}-%{version}-root
 
+%define _prefix		/usr/X11R6
+
 %description
 xkeycaps is a graphical front-end to xmodmap.It opens a window that looks
 like a keyboard; moving the mouse over a key shows what KeySyms and Modifier
@@ -41,12 +43,14 @@ make DEFAULT_KBD_NAME="L101" CDEBUGFLAGS="$RPM_OPT_FLAGS"
 rm -rf $RPM_BUILD_ROOT
 install -d $RPM_BUILD_ROOT/etc/X11/wmconfig
 
-make install DESTDIR=$RPM_BUILD_ROOT
-make install.man DESTDIR=$RPM_BUILD_ROOT MANPATH=/usr/X11R6/share/man
+make DESTDIR=$RPM_BUILD_ROOT \
+        MANDIR=%{_mandir}/man1 \
+        BINDIR=%{_bindir} \
+        install install.man
 
-install %{SOURCE1} $RPM_BUILD_ROOT/etc/X11/wmconfig/xkeycaps
+install %{SOURCE1} $RPM_BUILD_ROOT/etc/X11/wmconfig/%{name}
 
-gzip -9nf $RPM_BUILD_ROOT/usr/X11R6/share/man/man1/* \
+gzip -9nf $RPM_BUILD_ROOT%{_mandir}/man1/* \
 	README defining.txt
 
 %clean
@@ -55,9 +59,9 @@ rm -rf $RPM_BUILD_ROOT
 %files
 %defattr(644,root,root,755)
 %doc *.gz
-/etc/X11/wmconfig/xkeycaps
-%attr(755,root,root) /usr/X11R6/bin/xkeycaps
-/usr/X11R6/share/man/man1/*
+/etc/X11/wmconfig/%{name}
+%attr(755,root,root) %{_bindir}/%{name}
+%{_mandir}/man1/*
 
 %changelog
 * Sat May 15 1999 Piotr Czerwiñski <pius@pld.org.pl>
