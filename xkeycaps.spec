@@ -48,7 +48,7 @@ install -d $RPM_BUILD_ROOT%{_applnkdir}/Settings
 %{__make} install install.man \
 	DESTDIR=$RPM_BUILD_ROOT \
         MANDIR=%{_mandir}/man1 \
-        BINDIR=%{_bindir} 
+        BINDIR=%{_bindir}
 
 install %{SOURCE1} $RPM_BUILD_ROOT%{_applnkdir}/Settings
 
