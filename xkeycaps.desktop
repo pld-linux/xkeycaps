@@ -2,7 +2,8 @@
 Name=Xkeycaps
 Comment=A keymap editor for the X Window System
 Comment[pl]=Edytor map klawiatury dla Systemu X Window
-Exec=/usr/X11R6/bin/xkeycaps
+Icon=xkeycaps.png
+Exec=xkeycaps
 Terminal=0
 Type=Application
 # vi: encoding=utf-8
