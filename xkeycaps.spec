@@ -2,7 +2,7 @@ Summary:	xkeycaps - a keymap editor for the X window system
 Summary(pl):	xkeycaps - edytor mapy klawiatury dla X window
 Name:		xkeycaps
 Version:	2.44
-Release:	1
+Release:	2
 Copyright:	BSD
 Group:		X11/Applications
 Group(pl):	X11/Aplikacje
@@ -42,11 +42,11 @@ rm -rf $RPM_BUILD_ROOT
 install -d $RPM_BUILD_ROOT/etc/X11/wmconfig
 
 make install DESTDIR=$RPM_BUILD_ROOT
-make install.man DESTDIR=$RPM_BUILD_ROOT
+make install.man DESTDIR=$RPM_BUILD_ROOT MANPATH=/usr/X11R6/share/man
 
 install %{SOURCE1} $RPM_BUILD_ROOT/etc/X11/wmconfig/xkeycaps
 
-gzip -9nf $RPM_BUILD_ROOT/usr/X11R6/man/man1/* \
+gzip -9nf $RPM_BUILD_ROOT/usr/X11R6/share/man/man1/* \
 	README defining.txt
 
 %clean
@@ -57,9 +57,13 @@ rm -rf $RPM_BUILD_ROOT
 %doc *.gz
 /etc/X11/wmconfig/xkeycaps
 %attr(755,root,root) /usr/X11R6/bin/xkeycaps
-/usr/X11R6/man/man1/*
+/usr/X11R6/share/man/man1/*
 
 %changelog
+* Sat May 15 1999 Piotr Czerwiñski <pius@pld.org.pl>
+  [2.44-2]
+- package is now FHS 2.0 compliant.
+
 * Sun May  2 1999 Tomasz K³oczko <kloczek@rudy.mif.pg.gda.pl>
   [2.44-1]
 - added BuildPrereq rules,
