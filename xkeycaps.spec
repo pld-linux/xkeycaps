@@ -12,7 +12,7 @@ URL:		http://www.jwz.org/xkeycaps/
 BuildPrereq:	XFree86-devel
 Buildroot:	/tmp/%{name}-%{version}-root
 
-%define _prefix		/usr/X11R6
+%define _prefix	/usr/X11R6
 
 %description
 xkeycaps is a graphical front-end to xmodmap.It opens a window that looks
@@ -37,16 +37,18 @@ konfiguracyjny dla xmodmapa.
 
 %build
 xmkmf -a
-make DEFAULT_KBD_NAME="L101" CDEBUGFLAGS="$RPM_OPT_FLAGS"
+make \
+	DEFAULT_KBD_NAME="L101" \
+	CDEBUGFLAGS="$RPM_OPT_FLAGS"
 
 %install
 rm -rf $RPM_BUILD_ROOT
 install -d $RPM_BUILD_ROOT/etc/X11/wmconfig
 
-make DESTDIR=$RPM_BUILD_ROOT \
+make install install.man \
+	DESTDIR=$RPM_BUILD_ROOT \
         MANDIR=%{_mandir}/man1 \
-        BINDIR=%{_bindir} \
-        install install.man
+        BINDIR=%{_bindir} 
 
 install %{SOURCE1} $RPM_BUILD_ROOT/etc/X11/wmconfig/%{name}
 
@@ -64,44 +66,9 @@ rm -rf $RPM_BUILD_ROOT
 %{_mandir}/man1/*
 
 %changelog
-* Sat May 15 1999 Piotr Czerwi雟ki <pius@pld.org.pl>
+* Thu May 20 1999 Piotr Czerwi雟ki <pius@pld.org.pl> 
   [2.44-2]
-- package is now FHS 2.0 compliant.
-
-* Sun May  2 1999 Tomasz K這czko <kloczek@rudy.mif.pg.gda.pl>
-  [2.44-1]
-- added BuildPrereq rules,
-- recompiled on new rpm.
-
-* Mon Jan 11 1999 Arkadiusz Mi鄂iewicz <misiek@misiek.eu.org>
-- added pl translations
-
-* Thu Sep  8 1998 Tomasz K這czko <kloczek@rudy.mif.pg.gda.pl>
-  [2.43-1]
-- updated URL to http://www.jwz.org/xkeycaps/,
-- updated base Source Url to http://www.jwz.org/xkeycaps/
-
-* Sat May  3 1998 Tomasz K這czko <kloczek@rudy.mif.pg.gda.pl>
-  [2.42-1]
-- Copyright statment changed to BSD,
-- added %clean section,
-- added -q %setup parameter,
-- added URL,
-- added using $RPM_OPT_FLAGS on compile time,
-- removed paching default kbd name (now directly passed as make parameter),
-- rewrited Summary and %description,
-- removed Packager field from spec (if you want recompile package and
-  redistribute this package later put this in your private .rpmrc). 
-- changed to regular url,
-- added %%{version} to Source url,
-- added using %%{name} macro in Buildroot and Source fields,
-- added %defattr and %attr macros in %files (allows building package from
-  non-root account); %defattr requires rpm >= 2.4.99 on rebuild.
-
-* Fri Aug 22 1997 John A. Martin <jam@jamux.com>
-  [2.38-1]
-- not commented.
-
-* Fri Jan 17 1997 ??? <root@imp.redhat.com>
-  [2.32-1]
-- previouse not commented release in rpm package (powercd 4.2).
+- package is FHS 2.0 compliant,
+- based on spec file by John A. Martin <jam@jamux.com>,
+  modified for PLD use by me and Tomasz K這czko <kloczek@rudy.mif.pg.gda.pl>,
+- pl translation by Arkadiusz Mi鄂iewicz <misiek@misiek.eu.org>.
