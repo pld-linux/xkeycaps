@@ -5,6 +5,7 @@ Version:	2.44
 Release:	1
 Copyright:	BSD
 Group:		X11/Applications
+Group(pl):	X11/Aplikacje
 Source0:	http://www.jwz.org/xkeycaps/%{name}-%{version}.tar.Z
 Source1:	xkeycaps.wmconfig
 URL:		http://www.jwz.org/xkeycaps/
