@@ -9,7 +9,7 @@ Group(pl):	X11/Aplikacje
 Source0:	http://www.jwz.org/xkeycaps/%{name}-%{version}.tar.Z
 Source1:	xkeycaps.wmconfig
 URL:		http://www.jwz.org/xkeycaps/
-BuildPrereq:	XFree86-devel
+BuildRequires:	XFree86-devel
 Buildroot:	/tmp/%{name}-%{version}-root
 
 %define _prefix	/usr/X11R6
