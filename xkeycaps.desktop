@@ -1,7 +1,7 @@
 [Desktop Entry]
-Name=xkeycaps
-Comment=a keymap editor for the X Window System
-Comment[pl]=edytor map klawiatury dla X Window System
+Name=Xkeycaps
+Comment=A keymap editor for the X Window System
+Comment[pl]=Edytor map klawiatury dla Systemu X Window
 Exec=/usr/X11R6/bin/xkeycaps
 Terminal=0
 Type=Application
