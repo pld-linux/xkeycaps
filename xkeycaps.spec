@@ -10,11 +10,10 @@ Source0:	http://www.jwz.org/xkeycaps/%{name}-%{version}.tar.Z
 Source1:	xkeycaps.desktop
 URL:		http://www.jwz.org/xkeycaps/
 BuildRequires:	XFree86-devel
-Buildroot:	/tmp/%{name}-%{version}-root
+BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %define 	_prefix		/usr/X11R6
 %define 	_mandir 	%{_prefix}/man
-%define		_applnkdir	/usr/X11R6/share/applnk
 
 %description
 xkeycaps is a graphical front-end to xmodmap.It opens a window that looks
