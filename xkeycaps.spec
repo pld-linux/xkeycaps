@@ -2,7 +2,7 @@ Summary:	xkeycaps - a keymap editor for the X Window System
 Summary(pl):	xkeycaps - edytor mapy klawiatury dla X Window System
 Name:		xkeycaps
 Version:	2.45
-Release:	1
+Release:	2
 Copyright:	BSD
 Group:		X11/Applications
 Group(pl):	X11/Aplikacje
