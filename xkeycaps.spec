@@ -23,7 +23,7 @@ future sessions.
 
 %build
 xmkmf -a
-make DEFAULT_KBD_NAME="L101" CDEBUGFLAGS=$RPM_OPT_FLAGS
+make DEFAULT_KBD_NAME="L101" CDEBUGFLAGS="$RPM_OPT_FLAGS"
 
 %install
 rm -rf $RPM_BUILD_ROOT
