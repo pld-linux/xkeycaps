@@ -59,6 +59,11 @@ rm -rf $RPM_BUILD_ROOT
 /usr/X11R6/man/man1/*
 
 %changelog
+* Sun May  2 1999 Tomasz K³oczko <kloczek@rudy.mif.pg.gda.pl>
+  [2.44-1]
+- added BuildPrereq rules,
+- recompiled on new rpm.
+
 * Mon Jan 11 1999 Arkadiusz Mi¶kiewicz <misiek@misiek.eu.org>
 - added pl translations
 
