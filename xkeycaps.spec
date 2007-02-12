@@ -1,7 +1,7 @@
 Summary:	xkeycaps - a keymap editor for the X Window System
-Summary(es.UTF-8):   Un editor de mapas de teclado para X
-Summary(pl.UTF-8):   xkeycaps - edytor mapy klawiatury dla X Window System
-Summary(pt_BR.UTF-8):   Um editor de mapas de teclado para o X
+Summary(es.UTF-8):	Un editor de mapas de teclado para X
+Summary(pl.UTF-8):	xkeycaps - edytor mapy klawiatury dla X Window System
+Summary(pt_BR.UTF-8):	Um editor de mapas de teclado para o X
 Name:		xkeycaps
 Version:	2.46
 Release:	6
