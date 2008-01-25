@@ -4,7 +4,7 @@ Summary(pl.UTF-8):	xkeycaps - edytor mapy klawiatury dla X Window System
 Summary(pt_BR.UTF-8):	Um editor de mapas de teclado para o X
 Name:		xkeycaps
 Version:	2.46
-Release:	6
+Release:	7
 License:	BSD
 Group:		X11/Applications
 Source0:	http://www.jwz.org/xkeycaps/%{name}-%{version}.tar.Z
