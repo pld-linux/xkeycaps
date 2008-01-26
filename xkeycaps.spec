@@ -4,7 +4,7 @@ Summary(pl.UTF-8):	xkeycaps - edytor mapy klawiatury dla X Window System
 Summary(pt_BR.UTF-8):	Um editor de mapas de teclado para o X
 Name:		xkeycaps
 Version:	2.46
-Release:	7
+Release:	8
 License:	BSD
 Group:		X11/Applications
 Source0:	http://www.jwz.org/xkeycaps/%{name}-%{version}.tar.Z
@@ -12,11 +12,10 @@ Source0:	http://www.jwz.org/xkeycaps/%{name}-%{version}.tar.Z
 Source1:	%{name}.desktop
 Source2:	%{name}.png
 URL:		http://www.jwz.org/xkeycaps/
-BuildRequires:	XFree86-devel
+BuildRequires:	xorg-cf-files
+BuildRequires:	xorg-util-imake
+BuildRequires:	xorg-util-gccmakedep
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
-
-%define 	_prefix		/usr/X11R6
-%define 	_mandir 	%{_prefix}/man
 
 %description
 xkeycaps is a graphical front-end to xmodmap.It opens a window that
