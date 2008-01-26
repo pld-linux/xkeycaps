@@ -13,8 +13,12 @@ Source1:	%{name}.desktop
 Source2:	%{name}.png
 URL:		http://www.jwz.org/xkeycaps/
 BuildRequires:	xorg-cf-files
-BuildRequires:	xorg-util-imake
+BuildRequires:	xorg-lib-libXaw-devel
+BuildRequires:	xorg-lib-libXext-devel
+BuildRequires:	xorg-lib-libXmu-devel
+BuildRequires:	xorg-lib-libXt-devel
 BuildRequires:	xorg-util-gccmakedep
+BuildRequires:	xorg-util-imake
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -62,8 +66,11 @@ Veja a página do manual para maiores detalhes.
 
 %build
 xmkmf -a
-%{__make} DEFAULT_KBD_NAME="L101" \
-	CDEBUGFLAGS="%{rpmcflags}"
+%{__make} \
+	CC="%{__cc}" \
+	CDEBUGFLAGS="%{rpmcflags}" \
+	EXTRA_LDOPTIONS="%{rpmldflags}" \
+	DEFAULT_KBD_NAME="L101"
 
 %install
 rm -rf $RPM_BUILD_ROOT
